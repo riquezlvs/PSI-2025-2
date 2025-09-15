@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class MackShop {
+
+    static int idsProdutos[] = new int[100]; // Armazena os códigos numéricos únicos de cada produto.
+    static String nomesProdutos[] = new String[100]; // Armazena as descrições dos produtos.
+    static double precosProdutos[] = new double[100]; // Armazena os preços unitários de cada produto.
+    static int estoqueProdutos[] = new int[100]; // Armazena a quantidade disponível de cada produto.
+    
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Cátalogos de produtos (vetores paralelos)
+        
+
+        Menu(scanner); 
+        scanner.close();
+    }
+
+    // INICIA O MENU DO PROGRAMA
+
+    public static void Menu(Scanner scanner) {
+        int opcaoMenu;
+
+        do {
+            System.out.println("1. Inicializar base");
+            System.out.println("2. Exibir catálogo de produtos");
+            System.out.println("3. Adicionar item à venda");
+            System.out.println("4. Ver resumo da venda atual");
+            System.out.println("5. Finalizar venda (gerar histórico e Nota Fiscal)");
+            System.out.println("6. Ver histórico de vendas");
+            System.out.println("7. Buscar venda específica do histórico");
+            System.out.println("8. (Admin) Repor estoque");
+            System.out.println("9. (Admin) Relatório de estoque baixo");
+            System.out.print("Digite opção que deseja selecionar (1-9): ");
+
+            opcaoMenu = scanner.nextInt();
+
+            if (opcaoMenu < 1 || opcaoMenu > 9) {
+                System.out.printf("Digite um caractere inválido. Opção %d não aceita\n", opcaoMenu);
+            } else {
+                switch (opcaoMenu) {
+                    case 1:
+                        iniciarBase(scanner);
+                        break;
+                
+                    default:
+                        break;
+                }
+            }
+
+        } while (opcaoMenu >= 1 && opcaoMenu <= 9);
+    }
+
+    // INICIA A BASE DE DADOS PADRÃO DO SISTEMA
+
+    public static void iniciarBase(Scanner scanner){
+        idsProdutos[0] = 101;
+        nomesProdutos[0] = "Camiseta";
+        precosProdutos[0] = 49.90;
+        estoqueProdutos[0] = 20;
+    }
+
+}
